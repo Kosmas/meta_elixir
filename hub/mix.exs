@@ -25,6 +25,8 @@ defmodule Hub.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    []
+    [{:ibrowse, github: "cmullaparthi/ibrowse", tag: "v4.1.0"},
+     {:poison, "~> 1.3.0"},
+     {:httpotion, "~> 1.0.0"}]
   end
 end
