@@ -22,6 +22,20 @@ defmodule WhileTest do
           send self, :done
       end
     end
-  assert_received :done
-end
+    assert_received :done
+  end
+
+  test "break/0 terminates execution" do
+    send self, :one
+    while true do
+      receive do
+        :one -> send self, :two
+        :two -> send self, :three
+        :three ->
+          send self, :done
+          break
+      end
+    end
+    assert_received :done
+  end
 end
